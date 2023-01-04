@@ -15,6 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: SizedBox(
           height: size.height,
           child: Column(
