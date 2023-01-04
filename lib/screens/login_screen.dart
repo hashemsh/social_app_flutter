@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_app_flutter/widgets/curve_clipper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -18,11 +19,14 @@ class _LoginScreenState extends State<LoginScreen> {
           height: size.height,
           child: Column(
             children: [
-              Image(
-                height: size.height / 2.5,
-                width: double.infinity,
-                image: const AssetImage('assets/images/login_background.jpg'),
-                fit: BoxFit.cover,
+              ClipPath(
+                clipper: CurveClipper(),
+                child: Image(
+                  height: size.height / 2.5,
+                  width: double.infinity,
+                  image: const AssetImage('assets/images/login_background.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
               Text(
                 'FRENZY',
@@ -30,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: themeData.primaryColor,
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 3.1),
+                    letterSpacing: 10.0),
               ),
               const SizedBox(
                 height: 10.0,
