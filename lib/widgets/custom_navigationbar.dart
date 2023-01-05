@@ -12,6 +12,7 @@ class CustomNavigationBar extends StatefulWidget {
 }
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
@@ -43,7 +44,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         GButton(
           icon: Icons.account_circle,
           text: 'Profile',
-          onPressed: () => Navigator.pushReplacement(
+          onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
               builder: (_) => ProfileScreen(
@@ -53,6 +54,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           ),
         ),
       ],
+      selectedIndex: _selectedIndex,
+      onTabChange: (index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
     );
   }
 }
