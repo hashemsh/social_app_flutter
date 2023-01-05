@@ -3,7 +3,7 @@ import 'package:social_app_flutter/data/data.dart';
 import 'package:social_app_flutter/models/user_model.dart';
 
 class FollowingUsers extends StatelessWidget {
-  const FollowingUsers({Key key}) : super(key: key);
+  const FollowingUsers({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

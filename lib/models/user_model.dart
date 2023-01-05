@@ -10,12 +10,12 @@ class User {
   final List<Post> favorites;
 
   User({
-    this.profileImageUrl,
-    this.backgroundImageUrl,
-    this.name,
-    this.following,
-    this.followers,
-    this.posts,
-    this.favorites,
+    required this.profileImageUrl,
+    required this.backgroundImageUrl,
+    required this.name,
+    required this.following,
+    required this.followers,
+    required this.posts,
+    required this.favorites,
   });
 }

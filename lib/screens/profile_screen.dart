@@ -8,7 +8,7 @@ import 'package:social_app_flutter/widgets/profile_clipper.dart';
 
 class ProfileScreen extends StatefulWidget {
   final User user;
-  const ProfileScreen({Key key, this.user}) : super(key: key);
+  const ProfileScreen({Key? key, required this.user}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -16,8 +16,8 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final GlobalKey<ScaffoldState> _scafoldKey = GlobalKey<ScaffoldState>();
-  PageController _yourPostPageController;
-  PageController _favoritesPageController;
+  late PageController _yourPostPageController;
+  late PageController _favoritesPageController;
 
   @override
   void initState() {
@@ -31,8 +31,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scafoldKey,
-      bottomNavigationBar: CustomNavigationBar(),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -43,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ClipPath(
                   clipper: ProfileClipper(),
                   child: Image(
-                    height: 300.0,
+                    height: 200.0,
                     width: double.infinity,
                     image: AssetImage(widget.user.backgroundImageUrl),
                     fit: BoxFit.cover,

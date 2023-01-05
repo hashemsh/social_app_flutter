@@ -5,17 +5,21 @@ class PostsCarousel extends StatelessWidget {
   final PageController pageController;
   final String title;
   final List<Post> posts;
-  const PostsCarousel({Key key, this.pageController, this.title, this.posts})
+  const PostsCarousel(
+      {Key? key,
+      required this.pageController,
+      required this.title,
+      required this.posts})
       : super(key: key);
 
   _buildPost(BuildContext context, int index) {
     Post post = posts[index];
     return AnimatedBuilder(
       animation: pageController,
-      builder: (BuildContext context, Widget widget) {
+      builder: (BuildContext context, widget) {
         double value = 1;
         if (pageController.position.haveDimensions) {
-          value = pageController.page - index;
+          value = pageController.page! - index;
           value = (1 - (value.abs() * 0.25)).clamp(0.0, 1.0);
         }
         return Center(

@@ -9,11 +9,11 @@ class Post {
   final int comments;
 
   Post({
-    this.imageUrl,
-    this.author,
-    this.title,
-    this.location,
-    this.likes,
-    this.comments,
+    required this.imageUrl,
+    required this.author,
+    required this.title,
+    required this.location,
+    required this.likes,
+    required this.comments,
   });
 }

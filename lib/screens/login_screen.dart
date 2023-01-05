@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:social_app_flutter/screens/home_screen.dart';
+import 'package:social_app_flutter/screens/root.dart';
 import 'package:social_app_flutter/widgets/curve_clipper.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -82,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onTap: () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => HomeScreen(),
+                    builder: (_) => RootScreen(),
                   ),
                 ),
                 child: Container(
