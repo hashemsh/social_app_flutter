@@ -26,12 +26,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         GButton(
           icon: Icons.home,
           text: 'Home',
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => HomeScreen(),
-            ),
-          ),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeScreen(),
+              ),
+            );
+          },
         ),
         GButton(
           icon: Icons.favorite_border,
@@ -44,14 +46,17 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         GButton(
           icon: Icons.account_circle,
           text: 'Profile',
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => ProfileScreen(
-                user: currentUser,
+          onPressed: () {
+            _selectedIndex = 3;
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfileScreen(
+                  user: currentUser,
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
       selectedIndex: _selectedIndex,
