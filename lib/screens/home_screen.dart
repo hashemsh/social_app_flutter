@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app_flutter/data/data.dart';
+import 'package:social_app_flutter/widgets/custom_navigationbar.dart';
 import 'package:social_app_flutter/widgets/following_users.dart';
 import 'package:social_app_flutter/widgets/posts_carousel.dart';
 
@@ -27,56 +28,65 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      appBar: AppBar(
-        elevation: 0.5,
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: themeData.primaryColor),
-        centerTitle: true,
-        title: Text(
-          'FRENZY',
-          style: TextStyle(
-              color: themeData.primaryColor,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 10.0),
-        ),
-        bottom: TabBar(
-          controller: _tabController,
-          indicatorWeight: 2.0,
-          labelColor: themeData.primaryColor,
-          labelStyle: const TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.w600,
+        backgroundColor: Colors.grey.shade100,
+        appBar: AppBar(
+          elevation: 0.5,
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: themeData.primaryColor),
+          title: Text(
+            'FRENZY',
+            style: TextStyle(
+                color: themeData.primaryColor,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 10.0),
           ),
-          tabs: const [
-            Tab(
-              text: 'Trending',
-            ),
-            Tab(
-              text: 'Latest',
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(Icons.sms),
+              ),
             ),
           ],
+          bottom: TabBar(
+            controller: _tabController,
+            indicatorWeight: 2.0,
+            indicatorColor: Colors.lightBlueAccent,
+            labelColor: themeData.primaryColor,
+            labelStyle: const TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+            ),
+            tabs: const [
+              Tab(
+                text: 'Trending',
+              ),
+              Tab(
+                text: 'Latest',
+              ),
+            ],
+          ),
         ),
-      ),
-      body: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          const FollowingUsers(),
-          PostsCarousel(
-            pageController: _pageController1,
-            title: 'Posts',
-            posts: posts,
-          ),
-          PostsCarousel(
-            pageController: _pageController2,
-            title: 'People follow',
-            posts: posts.reversed.toList(),
-          ),
-          SizedBox(
-            height: 20,
-          )
-        ],
-      ),
-    );
+        body: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            const FollowingUsers(),
+            PostsCarousel(
+              pageController: _pageController1,
+              title: 'Posts',
+              posts: posts,
+            ),
+            PostsCarousel(
+              pageController: _pageController2,
+              title: 'People follow',
+              posts: posts.reversed.toList(),
+            ),
+            SizedBox(
+              height: 20,
+            )
+          ],
+        ),
+        bottomNavigationBar: CustomNavigationBar());
   }
 }

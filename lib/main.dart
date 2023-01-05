@@ -6,7 +6,7 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
-    systemNavigationBarColor: Colors.blue,
+    systemNavigationBarColor: Colors.lightBlueAccent,
     systemNavigationBarIconBrightness: Brightness.light,
   ));
   runApp(MyApp());
@@ -21,10 +21,12 @@ class MyApp extends StatelessWidget {
       title: 'social App flutter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue,
+        primaryColor: Colors.lightBlueAccent,
         primarySwatch: Theme.of(context).primaryColor,
       ),
       home: LoginScreen(),
     );
   }
 }
+
+//Pixle 6 A11
