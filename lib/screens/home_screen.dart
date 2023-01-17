@@ -78,23 +78,21 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Stack _latestWidget() {
-    return Stack(
-      children: [
-        PageView.builder(
-          physics: BouncingScrollPhysics(),
-          controller: _tabController,
-          scrollDirection: Axis.vertical,
-          itemCount: posts.length,
-          itemBuilder: (BuildContext context, int index) {
-            Post post = posts[index];
-            return Image(
-              image: AssetImage(post.imageUrl),
-              fit: BoxFit.cover,
-            );
-          },
-        ),
-      ],
+  PageView _latestWidget() {
+    return PageView.builder(
+      physics: BouncingScrollPhysics(),
+      controller: _tabController,
+      scrollDirection: Axis.vertical,
+      // itemCount: posts.length,
+      itemCount: 10,
+      itemBuilder: (BuildContext context, int index) {
+        // Post post = posts[index];
+        return Image(
+          image: NetworkImage('https://source.unsplash.com/random?sig=$index'),
+          // AssetImage(post.imageUrl)
+          fit: BoxFit.cover,
+        );
+      },
     );
   }
 
