@@ -9,7 +9,7 @@ void main() {
     systemNavigationBarColor: Colors.purpleAccent,
     systemNavigationBarIconBrightness: Brightness.light,
   ));
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.purpleAccent,
         primarySwatch: Colors.purple,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }

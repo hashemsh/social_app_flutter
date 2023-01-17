@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:social_app_flutter/screens/home_screen.dart';
 import 'package:social_app_flutter/screens/login_screen.dart';
 import 'package:social_app_flutter/screens/root.dart';
 import 'package:social_app_flutter/widgets/curve_clipper.dart';
@@ -103,7 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 onTap: () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => RootScreen(),
+                    builder: (_) => const RootScreen(),
                   ),
                 ),
                 child: Container(
@@ -136,14 +135,14 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: RichText(
                         text: TextSpan(
                           text: 'have an account ?  ',
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.w300),
                           children: [
                             TextSpan(
                               text: 'Login',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.w600),
@@ -151,7 +150,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ..onTap = () => Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (_) => LoginScreen(),
+                                        builder: (_) => const LoginScreen(),
                                       ),
                                     ),
                             )

@@ -7,6 +7,7 @@ class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key, required this.posts}) : super(key: key);
 
   //for load image From Post Data
+  // ignore: unused_element
   _masonryLayout(BuildContext context, int index) {
     Post post = posts[index];
     return Padding(

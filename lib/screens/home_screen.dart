@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_app_flutter/data/data.dart';
-import 'package:social_app_flutter/models/post_model.dart';
 import 'package:social_app_flutter/widgets/following_users.dart';
 import 'package:social_app_flutter/widgets/posts_carousel.dart';
 
@@ -80,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   PageView _latestWidget() {
     return PageView.builder(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       controller: _tabController,
       scrollDirection: Axis.vertical,
       // itemCount: posts.length,
