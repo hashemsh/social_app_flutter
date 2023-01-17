@@ -110,6 +110,8 @@ Widget _navigator(GlobalKey key, int index, Widget child) {
       : Navigator(
           key: key,
           onGenerateRoute: (settings) => MaterialPageRoute(
-              builder: (context) => Offstage(
-                  offstage: selectedScreenIndex != index, child: child)));
+            builder: (context) =>
+                Offstage(offstage: selectedScreenIndex != index, child: child),
+          ),
+        );
 }
