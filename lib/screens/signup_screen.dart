@@ -1,17 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:social_app_flutter/screens/login_screen.dart';
 import 'package:social_app_flutter/screens/root.dart';
-import 'package:social_app_flutter/screens/signup_screen.dart';
 import 'package:social_app_flutter/widgets/curve_clipper.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -39,6 +39,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 6.0),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 15.0),
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: 'FirstName',
+                    prefixIcon: Icon(
+                      Icons.accessibility_sharp,
+                      size: 30.0,
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 10.0,
@@ -96,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: const Text(
-                    'Login',
+                    'Sign up',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -116,14 +134,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 80.0,
                       child: RichText(
                         text: TextSpan(
-                          text: 'Don\'t have an account ? ',
+                          text: 'have an account ?  ',
                           style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.w300),
                           children: [
                             TextSpan(
-                              text: 'Sign up',
+                              text: 'Login',
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20.0,
@@ -132,10 +150,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ..onTap = () => Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (_) => const SignupScreen(),
+                                        builder: (_) => const LoginScreen(),
                                       ),
                                     ),
-                            ),
+                            )
                           ],
                         ),
                       ),

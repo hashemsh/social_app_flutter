@@ -1,8 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:social_app_flutter/models/user_model.dart';
-import 'package:social_app_flutter/widgets/custom_navigationbar.dart';
 import 'package:social_app_flutter/widgets/posts_carousel.dart';
 import 'package:social_app_flutter/widgets/profile_clipper.dart';
 
@@ -15,7 +12,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final GlobalKey<ScaffoldState> _scafoldKey = GlobalKey<ScaffoldState>();
   late PageController _yourPostPageController;
   late PageController _favoritesPageController;
 
@@ -32,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Stack(
@@ -50,7 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Positioned(
                   bottom: 10.0,
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -75,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: const EdgeInsets.all(15.0),
               child: Text(
                 widget.user.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.0,
@@ -87,32 +83,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Column(
                   children: [
-                    Text(
+                    const Text(
                       'Following',
                       style: TextStyle(color: Colors.black54, fontSize: 22.0),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2.0,
                     ),
                     Text(
                       widget.user.following.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.w600),
                     )
                   ],
                 ),
                 Column(
                   children: [
-                    Text(
+                    const Text(
                       'Followers',
                       style: TextStyle(color: Colors.black54, fontSize: 22.0),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2.0,
                     ),
                     Text(
                       widget.user.followers.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.w600),
                     )
                   ],
@@ -129,7 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: 'Favorites',
               posts: widget.user.favorites,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50.0,
             )
           ],

@@ -32,10 +32,10 @@ class PostsCarousel extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.all(10.0),
+            margin: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                     color: Colors.black26,
                     offset: Offset(0, 2),
@@ -57,9 +57,9 @@ class PostsCarousel extends StatelessWidget {
             bottom: 10.0,
             right: 10.0,
             child: Container(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               height: 150.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 // color: Colors.white38,
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -84,17 +84,17 @@ class PostsCarousel extends StatelessWidget {
                 children: [
                   Text(
                     post.title,
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 24.0, fontWeight: FontWeight.bold),
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     post.location,
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+                    style: const TextStyle(
+                        fontSize: 18.0, fontWeight: FontWeight.w500),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6.0,
                   ),
                   Row(
@@ -102,16 +102,16 @@ class PostsCarousel extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.favorite,
                             color: Colors.red,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 6.0,
                           ),
                           Text(
                             post.likes.toString(),
-                            style: TextStyle(fontSize: 18.0),
+                            style: const TextStyle(fontSize: 18.0),
                           )
                         ],
                       ),
@@ -121,12 +121,12 @@ class PostsCarousel extends StatelessWidget {
                             Icons.comment,
                             color: Theme.of(context).primaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 6.0,
                           ),
                           Text(
                             post.comments.toString(),
-                            style: TextStyle(fontSize: 18.0),
+                            style: const TextStyle(fontSize: 18.0),
                           )
                         ],
                       )
@@ -157,10 +157,10 @@ class PostsCarousel extends StatelessWidget {
             ),
           ),
         ),
-        Container(
+        SizedBox(
           height: 400.0,
           child: PageView.builder(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             controller: pageController,
             itemCount: posts.length,
             itemBuilder: (BuildContext context, int index) {

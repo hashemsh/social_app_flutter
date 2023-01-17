@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:social_app_flutter/data/data.dart';
+import 'package:social_app_flutter/screens/explore_screen.dart';
 import 'package:social_app_flutter/screens/home_screen.dart';
 import 'package:social_app_flutter/screens/profile_screen.dart';
 
@@ -52,32 +53,18 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return WillPopScope(
+        onWillPop: _onWillPop,
         child: Scaffold(
           body: IndexedStack(
             index: selectedScreenIndex,
             children: [
-              _navigator(_homeKey, homeIndex, HomeScreen()),
+              _navigator(_homeKey, homeIndex, const HomeScreen()),
+              _navigator(_likeKey, likeIndex,
+                  const Scaffold(backgroundColor: Colors.red)),
               _navigator(
-                _likeKey,
-                likeIndex,
-                Scaffold(
-                  backgroundColor: Colors.red,
-                ),
-              ),
+                  _exploreKey, exploreIndex, ExploreScreen(posts: posts)),
               _navigator(
-                _exploreKey,
-                exploreIndex,
-                Scaffold(
-                  backgroundColor: Colors.green,
-                ),
-              ),
-              _navigator(
-                _profileKey,
-                profileIndex,
-                ProfileScreen(
-                  user: currentUser,
-                ),
-              )
+                  _profileKey, profileIndex, ProfileScreen(user: currentUser))
             ],
           ),
           bottomNavigationBar: GNav(
@@ -85,8 +72,8 @@ class _RootScreenState extends State<RootScreen> {
             color: Colors.white38,
             activeColor: Colors.white,
             gap: 8,
-            padding: EdgeInsets.all(16),
-            tabs: [
+            padding: const EdgeInsets.all(16),
+            tabs: const [
               GButton(
                 icon: Icons.home,
                 text: 'Home',
@@ -113,8 +100,7 @@ class _RootScreenState extends State<RootScreen> {
               });
             },
           ),
-        ),
-        onWillPop: _onWillPop);
+        ));
   }
 }
 
@@ -124,6 +110,8 @@ Widget _navigator(GlobalKey key, int index, Widget child) {
       : Navigator(
           key: key,
           onGenerateRoute: (settings) => MaterialPageRoute(
-              builder: (context) => Offstage(
-                  offstage: selectedScreenIndex != index, child: child)));
+            builder: (context) =>
+                Offstage(offstage: selectedScreenIndex != index, child: child),
+          ),
+        );
 }
